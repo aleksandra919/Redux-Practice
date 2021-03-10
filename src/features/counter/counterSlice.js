@@ -1,5 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
+// A "slice" is a collection of Redux reducer logic and actions for a single feature in your app
+
+/* 
+Redux Toolkit has a function createSlice which generates:
+      - action type strings  e.g: {type: "counter/increment"}
+      - action creator functions
+      - action objects
+You need to: 
+      - define a name for this slice e.g:  name: 'counter',
+      - write an object that has some reducer functions in it, e.g:   decrement: state => { state.value -= 1},
+*/
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
@@ -34,9 +46,13 @@ export const incrementAsync = amount => dispatch => {
   }, 1000);
 };
 
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state) => state.counter.value)`
+/*
+ The function below is called a selector and allows us to select a value from
+ the state. Selectors can also be defined inline where they're used instead of
+ in the slice file. 
+
+ For example: `useSelector((state) => state.counter.value)`
+ */
 export const selectCount = state => state.counter.value;
 
 export default counterSlice.reducer;
